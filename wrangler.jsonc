@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "10x-astro-starter",
+  "name": "crossstitch-draft-generator",
   "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2026-05-08",
   "compatibility_flags": ["nodejs_compat"],
@@ -12,4 +12,22 @@
   "observability": {
     "enabled": true,
   },
+  "env": {
+    "staging": {
+      "routes": [
+        {
+          "pattern": "staging.example.com/*",
+          "zone_name": "example.com"
+        }
+      ]
+    },
+    "production": {
+      "routes": [
+        {
+          "pattern": "crossstitch.example.com/*",
+          "zone_name": "example.com"
+        }
+      ]
+    }
+  }
 }
